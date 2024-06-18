@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="600.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SAE201.CtrlAccueil">
+   <children>
+      <HBox alignment="TOP_CENTER" maxHeight="40.0" prefHeight="40.0" prefWidth="600.0" spacing="10.0" VBox.vgrow="ALWAYS">
+         <children>
+            <HBox prefHeight="50.0" prefWidth="95.0" spacing="10.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <ImageView fitHeight="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@logo.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="15.0" prefWidth="78.0" styleClass="textB" text="Le Patio">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="TOP_RIGHT" prefHeight="62.0" prefWidth="427.0" spacing="10.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <MenuButton fx:id="bnMenuClient" mnemonicParsing="false" onAction="#clicMenuClient" text="Client">
+                    <items>
+                      <MenuItem fx:id="menuAjoutClient" mnemonicParsing="false" onAction="#clicMenuAjoutClient" text="Créer un client" />
+                        <MenuItem fx:id="menuListeClient" mnemonicParsing="false" onAction="#clicMenuListeClient" text="Lister les clients" />
+                    </items>
+                  </MenuButton>
+                  <MenuButton fx:id="bnMenuResa" mnemonicParsing="false" onAction="#clicMenuResa" text="Réservation">
+                    <items>
+                      <MenuItem fx:id="menuAjoutResa" mnemonicParsing="false" onAction="#clicMenuAjoutResa" text="Créer une réservation" />
+                      <MenuItem fx:id="menuListeResa" mnemonicParsing="false" onAction="#clicMenuListeResa" text="Lister les réservations" />
+                    </items>
+                  </MenuButton>
+                  <MenuButton fx:id="btn_tarif" disable="true" mnemonicParsing="false" text="Tarification">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                      <MenuItem mnemonicParsing="false" text="Action 2" />
+                    </items>
+                  </MenuButton>
+                  <MenuButton fx:id="btn_spectacle" disable="true" mnemonicParsing="false" text="Spectacle">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                      <MenuItem mnemonicParsing="false" text="Action 2" />
+                    </items>
+                  </MenuButton>
+               </children>
+            </HBox>
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #00007B;" stylesheets="@Style.css">
+         <children>
+            <Label style="-fx-text-fill: #FFFFF5;" text="Accueil">
+               <font>
+                  <Font name="System Bold" size="35.0" />
+               </font>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </VBox.margin>
+      </HBox>
+      <GridPane alignment="CENTER" prefHeight="431.0" prefWidth="826.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <VBox alignment="CENTER" minHeight="100.0" minWidth="75.0" prefHeight="100.0" prefWidth="75.0" spacing="5.0" style="-fx-border-color: #00007B;">
+               <children>
+                  <ImageView fx:id="client" fitHeight="90.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@utilisateur.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="bnClient" mnemonicParsing="false" onAction="#clicClient" styleClass="bouton" text="Client" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" minHeight="100.0" minWidth="75.0" prefHeight="100.0" prefWidth="75.0" spacing="5.0" style="-fx-border-color: #00007B;" GridPane.columnIndex="1">
+               <children>
+                  <ImageView fx:id="reserv" fitHeight="90.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@reservation.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="bnResa" mnemonicParsing="false" onAction="#clicReservation" styleClass="bouton" text="Réservation" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" minHeight="100.0" minWidth="75.0" prefHeight="100.0" prefWidth="75.0" spacing="5.0" style="-fx-border-color: #00007B;" GridPane.rowIndex="1">
+               <children>
+                  <ImageView fx:id="spetacle" disable="true" fitHeight="90.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@theatre.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="bnSpectacle" disable="true" mnemonicParsing="false" styleClass="bouton" text="Spectacle" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" minHeight="100.0" minWidth="75.0" prefHeight="100.0" prefWidth="75.0" spacing="5.0" style="-fx-border-color: #00007B;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <ImageView fx:id="tarif" disable="true" fitHeight="90.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@etiquette-de-prix.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="bnTarification" disable="true" mnemonicParsing="false" styleClass="bouton" text="Tarification" />
+               </children>
+            </VBox>
+         </children>
+      </GridPane>
+      <HBox alignment="BOTTOM_LEFT" nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Button fx:id="bnFermer" mnemonicParsing="false" onAction="#clicFermer" styleClass="bouton" text="Fermer" />
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="995.0" prefWidth="847.0" spacing="10.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SAE201.CtrlAjoutResa">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="10000.0" styleClass="titre" text="Formulaire de réservation" VBox.vgrow="ALWAYS">
+         <VBox.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </VBox.margin>
+      </Label>
+      <VBox prefWidth="560.0">
+         <children>
+            <Label styleClass="soustitre" text="Réservation :">
+               <padding>
+                  <Insets bottom="20.0" />
+               </padding>
+            </Label>
+            <HBox alignment="CENTER_LEFT" prefWidth="560.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" styleClass="corps" text="Nombre de ticket :">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="txtNbTicket" onKeyTyped="#verifieNbTicket" prefHeight="50.0" prefWidth="60.0" styleClass="zoneTexte" text="1" />
+                  <VBox prefWidth="100.0">
+                     <children>
+                        <Button fx:id="bnSup" mnemonicParsing="false" onAction="#clicNbTicketSup" prefHeight="25.0" prefWidth="25.0" rotate="-90.0" styleClass="bouton" text="&gt;">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="bnInf" mnemonicParsing="false" onAction="#clicNbTicketInf" prefHeight="25.0" prefWidth="25.0" rotate="-89.2" styleClass="bouton" text="&lt;">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefWidth="200.0">
+               <children>
+                  <VBox prefWidth="100.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label styleClass="corps" text="Date de réservation" />
+                        <DatePicker fx:id="txtDateResa" styleClass="zoneTexte" />
+                     </children>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox prefWidth="100.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label styleClass="corps" text="Date de confirmation" />
+                        <DatePicker fx:id="txtDateConfResa" styleClass="zoneTexte" />
+                     </children>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" />
+         </padding>
+      </VBox>
+      <VBox prefHeight="270.0" prefWidth="560.0">
+         <children>
+            <Label styleClass="soustitre" text="Client :">
+               <padding>
+                  <Insets bottom="20.0" />
+               </padding>
+            </Label>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <VBox alignment="CENTER_RIGHT" maxWidth="300.0" prefWidth="500.0" spacing="10.0">
+                     <children>
+                        <HBox prefWidth="200.0" spacing="10.0">
+                           <children>
+                              <Label prefWidth="140.0" styleClass="corps" text="N° du client : " />
+                              <TextField fx:id="txtNumero" styleClass="zoneTexte" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox prefWidth="200.0" spacing="10.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label prefWidth="140.0" styleClass="corps" text="Nom :" />
+                              <TextField fx:id="txtNom" styleClass="zoneTexte" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox prefWidth="200.0" spacing="10.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label prefWidth="140.0" styleClass="corps" text="Prénom :" />
+                              <TextField fx:id="txtPrenom" styleClass="zoneTexte" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </HBox>
+                        <Button fx:id="bnValiderClient" mnemonicParsing="false" onAction="#clicValiderClient" prefHeight="30.0" prefWidth="100.0" styleClass="bouton" text="Valider" />
+                        <Button fx:id="bnAjouter" alignment="CENTER" mnemonicParsing="false" onAction="#clicAjouter" prefHeight="30.0" prefWidth="100.0" styleClass="bouton" text="Ajouter" />
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+                  <TableView fx:id="tvClients" prefHeight="100.0" prefWidth="578.0" styleClass="zoneTexte" HBox.hgrow="ALWAYS">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="numéro" />
+                      <TableColumn prefWidth="75.0" text="nom" />
+                        <TableColumn prefWidth="75.0" text="prénom" />
+                        <TableColumn prefWidth="75.0" text="ville" />
+                    </columns>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </TableView>
+               </children>
+            </HBox>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" />
+         </padding>
+      </VBox>
+      <VBox prefHeight="362.0" prefWidth="711.0">
+         <children>
+            <Label styleClass="soustitre" text="Spectacle :">
+               <padding>
+                  <Insets bottom="20.0" />
+               </padding>
+            </Label>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <VBox alignment="CENTER_RIGHT" prefWidth="525.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="BASELINE_RIGHT" prefWidth="200.0" spacing="10.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="198.0" styleClass="corps" text="Jour de représentation :" HBox.hgrow="ALWAYS" />
+                              <DatePicker fx:id="txtJour" prefHeight="29.0" prefWidth="171.0" styleClass="zoneTexte" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="BASELINE_RIGHT" prefWidth="200.0" spacing="10.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="189.0" styleClass="corps" text="Nom du spectacle : " HBox.hgrow="ALWAYS" />
+                              <TextField fx:id="txtNomSpectacle" styleClass="zoneTexte" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="BASELINE_RIGHT" prefWidth="200.0" spacing="10.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="185.0" styleClass="corps" text="Artiste:" HBox.hgrow="ALWAYS" />
+                              <TextField fx:id="txtArtiste" styleClass="zoneTexte" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="BASELINE_RIGHT" prefWidth="200.0" spacing="10.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="191.0" styleClass="corps" text="Genre : " HBox.hgrow="ALWAYS" />
+                              <TextField fx:id="txtGenre" styleClass="zoneTexte" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </HBox>
+                        <Button fx:id="bnValiderSpectacle" mnemonicParsing="false" onAction="#clicValiderSpectacle" prefHeight="30.0" prefWidth="100.0" styleClass="bouton" text="Valider" />
+                     </children>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <TableView fx:id="tvSpectacle" prefHeight="100.0" prefWidth="578.0" styleClass="zoneTexte" HBox.hgrow="ALWAYS">
+                     <columns>
+                        <TableColumn prefWidth="75.0" text="numéro" />
+                        <TableColumn prefWidth="75.0" text="genre" />
+                        <TableColumn prefWidth="75.0" text="nom" />
+                        <TableColumn prefWidth="75.0" text="duree" />
+                        <TableColumn prefWidth="75.0" text="artiste" />
+                        <TableColumn prefWidth="75.0" text="nbMaxSpectateur" />
+                     </columns>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </TableView>
+               </children>
+            </HBox>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" />
+         </padding>
+      </VBox>
+      <HBox alignment="BOTTOM_RIGHT" prefHeight="62.0" prefWidth="711.0" spacing="10.0">
+         <children>
+            <Button fx:id="bnAnnuler" alignment="CENTER" mnemonicParsing="false" onAction="#clicAnnuler" prefHeight="30.0" prefWidth="100.0" styleClass="bouton" text="Annuler">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="bnValider" alignment="CENTER" mnemonicParsing="false" onAction="#clicValider" prefHeight="30.0" prefWidth="100.0" styleClass="bouton" text="Valider" />
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>
